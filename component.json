@@ -1,0 +1,24 @@
+{
+  "name": "mixed",
+  "repo": "pluma/mixed",
+  "description": "Minimalist, lightweight, ES5-compatible mixins.",
+  "keywords": [
+    "mixin"
+  ],
+  "version": "0.1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "1.7.x",
+    "expect": "0.2.x",
+    "uglify-js": "1.3.x"
+  },
+  "scripts": ["dist/mixed.js"],
+  "main": "./dist/mixed.js",
+  "ignore": [
+    "**/.*",
+    "build",
+    "components",
+    "node_modules"
+  ],
+  "license": "MIT"
+}
