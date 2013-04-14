@@ -55,19 +55,19 @@ bower install mixed
 
 ### With a CommonJS module loader
 
-Download the [latest minified CommonJS release](https://github.com/pluma/mixed/dist/mixed.min.js) and add it to your project.
+Download the [latest minified CommonJS release](https://raw.github.com/pluma/mixed/master/dist/mixed.min.js) and add it to your project.
 
 [Learn more about CommonJS modules](http://wiki.commonjs.org/wiki/Modules/1.1).
 
 ### With an AMD module loader
 
-Download the [latest minified AMD release](https://github.com/pluma/mixed/dist/mixed.amd.min.js) and add it to your project.
+Download the [latest minified AMD release](https://raw.github.com/pluma/mixed/master/dist/mixed.amd.min.js) and add it to your project.
 
 [Learn more about AMD modules](http://requirejs.org/docs/whyamd.html).
 
 ### As a standalone library
 
-Download the [latest minified standalone release](https://github.com/pluma/mixed/dist/mixed.globals.min.js) and add it to your project.
+Download the [latest minified standalone release](https://raw.github.com/pluma/mixed/master/dist/mixed.globals.min.js) and add it to your project.
 
 ```html
 <script src="/your/js/path/mixed.globals.min.js"></script>
