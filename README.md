@@ -75,10 +75,59 @@ Download the [latest minified standalone release](https://raw.github.com/pluma/m
 
 This makes the `mixed` module available in the global namespace.
 
-# Basic usage example
+# Basic `mixin` usage example
 
 ```javascript
-// TODO
+function Liquor() {
+    this.alcoholContent = 0.8;
+}
+Liquor.prototype = {
+    burn: function() {
+        this.alcoholContent *= 0.5;
+        if (this.alcoholContent > 0.2) {
+            console.log('*FOOSH*');
+        } else {
+            console.log('*fizzle*');
+        }
+    }
+};
+
+var cocktail = {};
+console.log(cocktail.alcoholContent); // undefined
+console.log(cocktail.burn); // undefined
+
+mixed.mixin(Liquor, cocktail);
+console.log(cocktail.alcoholContent); // 0.8
+cocktail.burn(); // *FOOSH*
+console.log(cocktail.alcoholContent); // 0.4
+```
+
+# Basic `mixable` usage example
+
+```javascript
+function Liquor() {
+    this.alcoholContent = 0.8;
+}
+Liquor.prototype = {
+    burn: function() {
+        this.alcoholContent *= 0.5;
+        if (this.alcoholContent > 0.2) {
+            console.log('*FOOSH*');
+        } else {
+            console.log('*fizzle*');
+        }
+    }
+};
+Liquor = mixed.mixable(Liquor);
+
+var cocktail = {};
+console.log(cocktail.alcoholContent); // undefined
+console.log(cocktail.burn); // undefined
+
+Liquor(cocktail);
+console.log(cocktail.alcoholContent); // 0.8
+cocktail.burn(); // *FOOSH*
+console.log(cocktail.alcoholContent); // 0.4
 ```
 
 # API
@@ -93,7 +142,7 @@ Copies each of the mixin's prototype's properties to the given object, then call
 
 ## mixable(ctor:Function):Function
 
-Creates a wrapper around the given constructor function that can be called either as a constructor (using the `new` keyword) or as a mixin (with the object to mix into as the sole argument).
+Creates a wrapper around the given constructor function that can be called either as a constructor (using the `new` keyword) or as a mixin (with the object to mix into as the sole argument). The constructor's prototype will be copied to the wrapper function.
 
 If called as a mixin, this wrapper behaves exactly as if `mixin` was called directly.
 

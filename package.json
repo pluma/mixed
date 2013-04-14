@@ -1,6 +1,6 @@
 {
   "name": "mixed",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Alan Plum <me@pluma.io>",
   "description": "Minimalist, lightweight, ES5-compatible mixins.",
   "repository": {

@@ -5,7 +5,7 @@
   "keywords": [
     "mixin"
   ],
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {},
   "devDependencies": {
     "mocha": "1.7.x",

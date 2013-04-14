@@ -1,7 +1,7 @@
-/*! mixed 0.1.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
+/*! mixed 0.2.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
 var copyProperty = (
-    typeof Object.defineProperty === 'function'
-    && typeof Object.getOwnPropertyDescriptor === 'function'
+    typeof Object.defineProperty === 'function' &&
+    typeof Object.getOwnPropertyDescriptor === 'function'
 ) ? function(dest, key, src) {
     Object.defineProperty(
         dest,
@@ -24,11 +24,13 @@ function mixin(Mixin, obj) {
 exports.mixin = mixin;
 
 function mixable(ctor) {
-    return function(obj) {
+    function Mixable(obj) {
         if (typeof obj === 'undefined') {
             return new ctor();
         }
         return mixin(ctor, obj);
     }
+    Mixable.prototype = ctor.prototype;
+    return Mixable;
 }
 exports.mixable = mixable;
