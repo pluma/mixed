@@ -16,6 +16,65 @@ Additionally, modifying the constructor's argument list to allow using it as a m
 
 **mixed** tries to solve this issue by both providing a standalone mixin function, to allow mixing any given constructor into any given object, and also providing a thin wrapper interface to turn any plain old argument-free constructor function into a component-style mixin that can be called either as a constructor (with the `new` keyword) or with an object to mix into (as the sole argument).
 
+# Install
+
+## Node.js
+
+### With NPM
+
+```sh
+npm install mixed
+```
+
+### From source
+
+```sh
+git clone https://github.com/pluma/mixed.git
+cd mixed
+npm install
+make && make dist
+```
+
+## Browser
+
+### With component
+
+```sh
+component install pluma/mixed
+```
+
+[Learn more about component](https://github.com/component/component).
+
+### With bower
+
+```sh
+bower install mixed
+```
+
+[Learn more about bower](https://github.com/twitter/bower).
+
+### With a CommonJS module loader
+
+Download the [latest minified CommonJS release](https://github.com/pluma/mixed/dist/mixed.min.js) and add it to your project.
+
+[Learn more about CommonJS modules](http://wiki.commonjs.org/wiki/Modules/1.1).
+
+### With an AMD module loader
+
+Download the [latest minified AMD release](https://github.com/pluma/mixed/dist/mixed.amd.min.js) and add it to your project.
+
+[Learn more about AMD modules](http://requirejs.org/docs/whyamd.html).
+
+### As a standalone library
+
+Download the [latest minified standalone release](https://github.com/pluma/mixed/dist/mixed.globals.min.js) and add it to your project.
+
+```html
+<script src="/your/js/path/mixed.globals.min.js"></script>
+```
+
+This makes the `mixed` module available in the global namespace.
+
 # Basic usage example
 
 ```javascript
