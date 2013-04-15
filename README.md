@@ -2,6 +2,8 @@
 
 **mixed** is a minimalist, lightweight, ES5-compatible function to mix Constructor functions and their prototypes into instance objects.
 
+[![Build Status](https://travis-ci.org/pluma/mixed.png?branch=master)](https://travis-ci.org/pluma/mixed)
+
 # Rationale
 
 There are seem to be two common approaches to dealing with mixins:
