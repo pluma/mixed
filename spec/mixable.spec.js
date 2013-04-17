@@ -10,7 +10,7 @@ describe('mixable', function() {
             this.alcoholContent *= 0.5;
         }
     };
-    var MixableLiquor = mixed.mixable(Liquor);
+    var MixableLiquor = mixable(Liquor);
 
     function Cocktail() {
         this.blended = false;
@@ -26,7 +26,6 @@ describe('mixable', function() {
     });
     
     describe('when instantiated with no arguments', function() {
-        var trueLiquor = new Liquor();
         var mixedLiquor = new MixableLiquor();
         it('acts as a regular instance', function() {
             expect(mixedLiquor).to.be.a(Liquor);

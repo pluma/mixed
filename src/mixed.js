@@ -22,14 +22,14 @@ function mixin(Mixin, obj) {
 }
 exports.mixin = mixin;
 
-function mixable(ctor) {
+function mixable(Ctor) {
     function Mixable(obj) {
         if (typeof obj === 'undefined') {
-            return new ctor();
+            return new Ctor();
         }
-        return mixin(ctor, obj);
+        return mixin(Ctor, obj);
     }
-    Mixable.prototype = ctor.prototype;
+    Mixable.prototype = Ctor.prototype;
     return Mixable;
 }
 exports.mixable = mixable;
