@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>mixed by pluma</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>mixed</h1>
+        <p>Minimalist, lightweight, ES5-compatible mixins.</p>
+        <p class="view"><a href="https://github.com/pluma/mixed">View the Project on GitHub <small>pluma/mixed</small></a></p>
+        <ul>
+          <li><a href="https://github.com/pluma/mixed/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/pluma/mixed/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/pluma/mixed">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Synopsis</h1>
+
+<p><strong>mixed</strong> is a minimalist, lightweight, ES5-compatible function to mix Constructor functions and their prototypes into instance objects.</p>
+
+<p><a href="https://ci.testling.com/pluma/mixed"><img src="https://ci.testling.com/pluma/mixed.png" alt="browser support"></a></p>
+
+<p><a href="https://travis-ci.org/pluma/mixed"><img src="https://travis-ci.org/pluma/mixed.png?branch=master" alt="Build Status"></a></p>
+
+<h1>Rationale</h1>
+
+<p>There are seem to be two common approaches to dealing with mixins:</p>
+
+<ol>
+<li><p>Mixins are special constructor functions that take an optional instance argument to augment an existing instance rather than the <code>this</code> context. This makes for very nice syntax, but requires the author to support mixing intentionally.</p></li>
+<li><p>Mixins are just collections of methods. In this case mixing is practically equivalent to the functionality already provided by <a href="https://github.com/jgallen23/aug">aug</a> or jQuery's <code>$.extend</code> function.</p></li>
+</ol><p>The first approach (used by many libraries in <a href="https://github.com/component/component">component</a>) provides a lot of power and flexibility, representing the same functionality mixins provide in class-based languages. However, the overhead of providing a mixin mechanism for each constructor individually seems obviously redundant.</p>
+
+<p>Additionally, modifying the constructor's argument list to allow using it as a mixin seems both intrusive and limitting, as many constructors would normally expect to be passed a configuration object or initial parameters.</p>
+
+<p><strong>mixed</strong> tries to solve this issue by both providing a standalone mixin function, to allow mixing any given constructor into any given object, and also providing a thin wrapper interface to turn any plain old argument-free constructor function into a component-style mixin that can be called either as a constructor (with the <code>new</code> keyword) or with an object to mix into (as the sole argument).</p>
+
+<h1>Install</h1>
+
+<h2>Node.js</h2>
+
+<h3>With NPM</h3>
+
+<div class="highlight"><pre>npm install mixed
+</pre></div>
+
+<h3>From source</h3>
+
+<div class="highlight"><pre>git clone https://github.com/pluma/mixed.git
+<span class="nb">cd </span>mixed
+npm install
+make <span class="o">&amp;&amp;</span> make dist
+</pre></div>
+
+<h2>Browser</h2>
+
+<h3>With component</h3>
+
+<div class="highlight"><pre>component install pluma/mixed
+</pre></div>
+
+<p><a href="https://github.com/component/component">Learn more about component</a>.</p>
+
+<h3>With bower</h3>
+
+<div class="highlight"><pre>bower install mixed
+</pre></div>
+
+<p><a href="https://github.com/twitter/bower">Learn more about bower</a>.</p>
+
+<h3>With a CommonJS module loader</h3>
+
+<p>Download the <a href="https://raw.github.com/pluma/mixed/master/dist/mixed.min.js">latest minified CommonJS release</a> and add it to your project.</p>
+
+<p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">Learn more about CommonJS modules</a>.</p>
+
+<h3>With an AMD module loader</h3>
+
+<p>Download the <a href="https://raw.github.com/pluma/mixed/master/dist/mixed.amd.min.js">latest minified AMD release</a> and add it to your project.</p>
+
+<p><a href="http://requirejs.org/docs/whyamd.html">Learn more about AMD modules</a>.</p>
+
+<h3>As a standalone library</h3>
+
+<p>Download the <a href="https://raw.github.com/pluma/mixed/master/dist/mixed.globals.min.js">latest minified standalone release</a> and add it to your project.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/your/js/path/mixed.globals.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>This makes the <code>mixed</code> module available in the global namespace.</p>
+
+<h1>Basic <code>mixin</code> usage example</h1>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Liquor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">alcoholContent</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Liquor</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">burn</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">alcoholContent</span> <span class="o">*=</span> <span class="mf">0.5</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">alcoholContent</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'*FOOSH*'</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'*fizzle*'</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">cocktail</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">alcoholContent</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">burn</span><span class="p">);</span> <span class="c1">// undefined</span>
+
+<span class="nx">mixed</span><span class="p">.</span><span class="nx">mixin</span><span class="p">(</span><span class="nx">Liquor</span><span class="p">,</span> <span class="nx">cocktail</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">alcoholContent</span><span class="p">);</span> <span class="c1">// 0.8</span>
+<span class="nx">cocktail</span><span class="p">.</span><span class="nx">burn</span><span class="p">();</span> <span class="c1">// *FOOSH*</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">alcoholContent</span><span class="p">);</span> <span class="c1">// 0.4</span>
+</pre></div>
+
+<h1>Basic <code>mixable</code> usage example</h1>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Liquor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">alcoholContent</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Liquor</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">burn</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">alcoholContent</span> <span class="o">*=</span> <span class="mf">0.5</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">alcoholContent</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'*FOOSH*'</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'*fizzle*'</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">Liquor</span> <span class="o">=</span> <span class="nx">mixed</span><span class="p">.</span><span class="nx">mixable</span><span class="p">(</span><span class="nx">Liquor</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">cocktail</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">alcoholContent</span><span class="p">);</span> <span class="c1">// undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">burn</span><span class="p">);</span> <span class="c1">// undefined</span>
+
+<span class="nx">Liquor</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">alcoholContent</span><span class="p">);</span> <span class="c1">// 0.8</span>
+<span class="nx">cocktail</span><span class="p">.</span><span class="nx">burn</span><span class="p">();</span> <span class="c1">// *FOOSH*</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">alcoholContent</span><span class="p">);</span> <span class="c1">// 0.4</span>
+</pre></div>
+
+<h1>API</h1>
+
+<h2>mixin(mixin:Function, obj):Object</h2>
+
+<p>Applies the given mixin to the given object and returns the object.</p>
+
+<p>Copies each of the mixin's prototype's properties to the given object, then calls the mixin as a function with the object as its context (<code>this</code>).</p>
+
+<p><strong>NOTE</strong>: If you simply want to merge two instances rather than messing with constructors and prototypes, consider using <a href="https://github.com/jgallen23/aug">aug</a> instead.</p>
+
+<h2>mixable(ctor:Function):Function</h2>
+
+<p>Creates a wrapper around the given constructor function that can be called either as a constructor (using the <code>new</code> keyword) or as a mixin (with the object to mix into as the sole argument). The constructor's prototype will be copied to the wrapper function.</p>
+
+<p>If called as a mixin, this wrapper behaves exactly as if <code>mixin</code> was called directly.</p>
+
+<h1>Acknowledgments</h1>
+
+<p>This library was influenced by <a href="https://github.com/visionmedia">TJ Holowaychuk</a>'s work on <a href="https://github.com/component/component">component</a>.</p>
+
+<h1>License</h1>
+
+<p>The MIT/Expat license.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/pluma">pluma</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
