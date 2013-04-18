@@ -1,4 +1,7 @@
-/*global describe, it, expect, mixed */
+/*global describe, it */
+var expect = require('expect.js'),
+    mixed = require('../dist/mixed.js');
+
 describe('mixin', function() {
     var mixin = mixed.mixin;
 
