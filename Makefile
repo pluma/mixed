@@ -1,4 +1,4 @@
-LICENSE_COMMENT="/*! mixed 0.2.0 Copyright (c) 2013 Alan Plum. MIT licensed. */"
+LICENSE_COMMENT="/*! mixed 0.2.1 Copyright (c) 2013 Alan Plum. MIT licensed. */"
 
 test:
 	@./node_modules/.bin/mocha \
