@@ -53,17 +53,19 @@ describe('mixable', function() {
         it('has all properties of the mixed-in prototype', function() {
             var keys = keys(Liquor.prototype);
             expect(mixedCocktail).to.have.keys(keys);
-            keys.forEach(function(key) {
+            for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
                 expect(mixedCocktail).to.have.property(key, Liquor.prototype[key]);
-            });
+            }
         });
 
         it('has all properties from the mixed-in constructor', function() {
             var keys = keys(trueLiquor);
             expect(mixedCocktail).to.have.keys(keys);
-            keys.forEach(function(key) {
+            for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
                 expect(mixedCocktail).to.have.property(key, trueLiquor[key]);
-            });
+            }
         });
 
         it('still acts as a regular instance', function() {
@@ -73,9 +75,10 @@ describe('mixable', function() {
         it('still has all properties from its own constructor', function() {
             var keys = keys(trueCocktail);
             expect(mixedCocktail).to.have.keys(keys);
-            keys.forEach(function(key) {
+            for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
                 expect(mixedCocktail).to.have.property(key, trueCocktail[key]);
-            });
+            }
         });
     });
 });
