@@ -2,7 +2,7 @@
 var expect = require('expect.js'),
     mixed = require('../dist/mixed.js');
 
-function keys(obj) {
+function getKeys(obj) {
     var result = [];
     for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
@@ -51,7 +51,7 @@ describe('mixable', function() {
         var mixedCocktail = MixableLiquor(new Cocktail());
 
         it('has all properties of the mixed-in prototype', function() {
-            var keys = keys(Liquor.prototype);
+            var keys = getKeys(Liquor.prototype);
             expect(mixedCocktail).to.have.keys(keys);
             for (var i = 0; i < keys.length; i++) {
                 var key = keys[i];
@@ -60,7 +60,7 @@ describe('mixable', function() {
         });
 
         it('has all properties from the mixed-in constructor', function() {
-            var keys = keys(trueLiquor);
+            var keys = getKeys(trueLiquor);
             expect(mixedCocktail).to.have.keys(keys);
             for (var i = 0; i < keys.length; i++) {
                 var key = keys[i];
@@ -73,7 +73,7 @@ describe('mixable', function() {
         });
 
         it('still has all properties from its own constructor', function() {
-            var keys = keys(trueCocktail);
+            var keys = getKeys(trueCocktail);
             expect(mixedCocktail).to.have.keys(keys);
             for (var i = 0; i < keys.length; i++) {
                 var key = keys[i];

@@ -1,4 +1,4 @@
-/*! mixed 0.2.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
+/*! mixed 0.2.1 Copyright (c) 2013 Alan Plum. MIT licensed. */
 (function(root){var require=function(key){return root[key];},exports=(root.mixed={});
 var copyProperty = (
     typeof Object.defineProperty === 'function' &&
