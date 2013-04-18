@@ -1,17 +1,30 @@
-/*! mixed 0.2.1 Copyright (c) 2013 Alan Plum. MIT licensed. */
+/*! mixed 0.3.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
 (function(root){var require=function(key){return root[key];},exports=(root.mixed={});
-var copyProperty = (
-    typeof Object.defineProperty === 'function' &&
-    typeof Object.getOwnPropertyDescriptor === 'function'
-) ? function(dest, key, src) {
+function isEs5() {
+    if (
+        typeof Object.defineProperty !== 'function' ||
+        typeof Object.getOwnPropertyDescriptor !== 'function'
+    ) {
+        return false;
+    }
+    try {
+        Object.defineProperty(
+            {}, 'x', Object.getOwnPropertyDescriptor({y: 1}, 'y')
+        );
+    } catch(e) {
+        return false;
+    }
+    return true;
+}
+
+var copyProperty = isEs5() ? function(dest, key, src) {
     Object.defineProperty(
-        dest,
-        key,
-        Object.getOwnPropertyDescriptor(src, key)
+        dest, key, Object.getOwnPropertyDescriptor(src, key)
     );
 } : function(dest, key, src) {
     dest[key] = src[key];
 };
+
 function mixin(Mixin, obj) {
     var proto = Mixin.prototype;
     for (var key in proto) {
