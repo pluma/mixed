@@ -1,4 +1,4 @@
-/*! mixed 0.3.0 Copyright (c) 2013 Alan Plum. MIT licensed. */
+/*! mixed 0.3.1 Copyright (c) 2013 Alan Plum. MIT licensed. */
 (function(root){var require=function(key){return root[key];},exports=(root.mixed={});
 function isEs5() {
     if (
@@ -25,24 +25,26 @@ var copyProperty = isEs5() ? function(dest, key, src) {
     dest[key] = src[key];
 };
 
-function mixin(Mixin, obj) {
-    var proto = Mixin.prototype;
+function mixin(Ctor, obj) {
+    var proto = Ctor.prototype;
+    var args = Array.prototype.slice.call(arguments, 2);
     for (var key in proto) {
         if (proto.hasOwnProperty(key)) {
             copyProperty(obj, key, proto);
         }
     }
-    Mixin.apply(obj);
+    Ctor.apply(obj, args);
     return obj;
 }
 exports.mixin = mixin;
 
 function mixable(Ctor) {
+    var args = Array.prototype.slice.call(arguments, 1);
     function Mixable(obj) {
         if (typeof obj === 'undefined') {
             return new Ctor();
         }
-        return mixin(Ctor, obj);
+        return mixin.apply(null, [Ctor, obj].concat(args));
     }
     Mixable.prototype = Ctor.prototype;
     return Mixable;

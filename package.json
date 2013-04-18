@@ -1,7 +1,7 @@
 {
   "name": "mixed",
   "author": "Alan Plum <me@pluma.io>",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "MIT",
   "description": "Minimalist, lightweight, ES5-compatible mixins.",
   "keywords": [

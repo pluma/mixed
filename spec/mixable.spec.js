@@ -80,5 +80,13 @@ describe('mixable', function() {
                 expect(mixedCocktail).to.have.property(key, trueCocktail[key]);
             }
         });
+
+        it('invokes the mixed-in constructor with the given arguments', function() {
+            var args = ['a', 'b', 'c'];
+            function ctor() {
+                expect(arguments).to.eql(args);
+            }
+            mixed.mixable.apply(null, [ctor].concat(args))({});
+        });
     });
 });
