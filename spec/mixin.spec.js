@@ -71,7 +71,8 @@ describe('mixin', function() {
     it('invokes the mixed-in constructor with the given arguments', function() {
         var args = ['a', 'b', 'c'];
         function ctor() {
-            expect(arguments).to.eql(args);
+            var actualArgs = Array.prototype.slice.call(arguments, 0);
+            expect(actualArgs).to.eql(args);
         }
         mixed.mixin.apply(null, [ctor, {}].concat(args));
     });
