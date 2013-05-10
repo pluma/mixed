@@ -4,7 +4,7 @@
 
 [![browser support](https://ci.testling.com/pluma/mixed.png)](https://ci.testling.com/pluma/mixed)
 
-[![Build Status](https://travis-ci.org/pluma/mixed.png?branch=master)](https://travis-ci.org/pluma/mixed)
+[![Build Status](https://travis-ci.org/pluma/mixed.png?branch=master)](https://travis-ci.org/pluma/mixed) [![NPM version](https://badge.fury.io/js/mixed.png)](http://badge.fury.io/js/mixed)
 
 # Rationale
 
