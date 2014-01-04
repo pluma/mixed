@@ -156,6 +156,6 @@ If called as a mixin, this wrapper behaves exactly as if `mixin` was called dire
 
 This library was influenced by [TJ Holowaychuk](https://github.com/visionmedia)'s work on [component](https://github.com/component/component).
 
-# License
+# Unlicense
 
-The MIT/Expat license.
+This is free and unencumbered public domain software. For more information, see http://unlicense.org/ or the accompanying [UNLICENSE](https://github.com/pluma/mixed/blob/master/UNLICENSE) file.
