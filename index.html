@@ -1,41 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>mixed by pluma</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="mixed : minimalist, lightweight, ES5-compatible mixins" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>mixed</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>mixed</h1>
-        <p>Minimalist, lightweight, ES5-compatible mixins.</p>
-        <p class="view"><a href="https://github.com/pluma/mixed">View the Project on GitHub <small>pluma/mixed</small></a></p>
-        <ul>
-          <li><a href="https://github.com/pluma/mixed/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/pluma/mixed/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/pluma/mixed">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>Synopsis</h1>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pluma/mixed">View on GitHub</a>
+
+          <h1 id="project_title">mixed</h1>
+          <h2 id="project_tagline">minimalist, lightweight, ES5-compatible mixins</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pluma/mixed/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pluma/mixed/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="synopsis" class="anchor" href="#synopsis"><span class="octicon octicon-link"></span></a>Synopsis</h1>
 
 <p><strong>mixed</strong> is a minimalist, lightweight, ES5-compatible function to mix Constructor functions and their prototypes into instance objects.</p>
 
 <p><a href="https://ci.testling.com/pluma/mixed"><img src="https://ci.testling.com/pluma/mixed.png" alt="browser support"></a></p>
 
-<p><a href="https://travis-ci.org/pluma/mixed"><img src="https://travis-ci.org/pluma/mixed.png?branch=master" alt="Build Status"></a></p>
+<p><a href="https://travis-ci.org/pluma/mixed"><img src="https://travis-ci.org/pluma/mixed.png?branch=master" alt="Build Status"></a> <a href="http://badge.fury.io/js/mixed"><img src="https://badge.fury.io/js/mixed.png" alt="NPM version"></a></p>
 
-<h1>Rationale</h1>
+<h1>
+<a name="rationale" class="anchor" href="#rationale"><span class="octicon octicon-link"></span></a>Rationale</h1>
 
 <p>There are seem to be two common approaches to dealing with mixins:</p>
 
@@ -48,63 +54,74 @@
 
 <p><strong>mixed</strong> tries to solve this issue by both providing a standalone mixin function, to allow mixing any given constructor into any given object, and also providing a thin wrapper interface to turn any plain old argument-free constructor function into a component-style mixin that can be called either as a constructor (with the <code>new</code> keyword) or with an object to mix into (as the sole argument).</p>
 
-<h1>Install</h1>
+<h1>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h1>
 
-<h2>Node.js</h2>
+<h2>
+<a name="nodejs" class="anchor" href="#nodejs"><span class="octicon octicon-link"></span></a>Node.js</h2>
 
-<h3>With NPM</h3>
+<h3>
+<a name="with-npm" class="anchor" href="#with-npm"><span class="octicon octicon-link"></span></a>With NPM</h3>
 
-<div class="highlight"><pre>npm install mixed
+<div class="highlight highlight-sh"><pre>npm install mixed
 </pre></div>
 
-<h3>From source</h3>
+<h3>
+<a name="from-source" class="anchor" href="#from-source"><span class="octicon octicon-link"></span></a>From source</h3>
 
-<div class="highlight"><pre>git clone https://github.com/pluma/mixed.git
+<div class="highlight highlight-sh"><pre>git clone https://github.com/pluma/mixed.git
 <span class="nb">cd </span>mixed
 npm install
 make <span class="o">&amp;&amp;</span> make dist
 </pre></div>
 
-<h2>Browser</h2>
+<h2>
+<a name="browser" class="anchor" href="#browser"><span class="octicon octicon-link"></span></a>Browser</h2>
 
-<h3>With component</h3>
+<h3>
+<a name="with-component" class="anchor" href="#with-component"><span class="octicon octicon-link"></span></a>With component</h3>
 
-<div class="highlight"><pre>component install pluma/mixed
+<div class="highlight highlight-sh"><pre>component install pluma/mixed
 </pre></div>
 
 <p><a href="https://github.com/component/component">Learn more about component</a>.</p>
 
-<h3>With bower</h3>
+<h3>
+<a name="with-bower" class="anchor" href="#with-bower"><span class="octicon octicon-link"></span></a>With bower</h3>
 
-<div class="highlight"><pre>bower install mixed
+<div class="highlight highlight-sh"><pre>bower install mixed
 </pre></div>
 
 <p><a href="https://github.com/twitter/bower">Learn more about bower</a>.</p>
 
-<h3>With a CommonJS module loader</h3>
+<h3>
+<a name="with-a-commonjs-module-loader" class="anchor" href="#with-a-commonjs-module-loader"><span class="octicon octicon-link"></span></a>With a CommonJS module loader</h3>
 
 <p>Download the <a href="https://raw.github.com/pluma/mixed/master/dist/mixed.min.js">latest minified CommonJS release</a> and add it to your project.</p>
 
 <p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">Learn more about CommonJS modules</a>.</p>
 
-<h3>With an AMD module loader</h3>
+<h3>
+<a name="with-an-amd-module-loader" class="anchor" href="#with-an-amd-module-loader"><span class="octicon octicon-link"></span></a>With an AMD module loader</h3>
 
 <p>Download the <a href="https://raw.github.com/pluma/mixed/master/dist/mixed.amd.min.js">latest minified AMD release</a> and add it to your project.</p>
 
 <p><a href="http://requirejs.org/docs/whyamd.html">Learn more about AMD modules</a>.</p>
 
-<h3>As a standalone library</h3>
+<h3>
+<a name="as-a-standalone-library" class="anchor" href="#as-a-standalone-library"><span class="octicon octicon-link"></span></a>As a standalone library</h3>
 
 <p>Download the <a href="https://raw.github.com/pluma/mixed/master/dist/mixed.globals.min.js">latest minified standalone release</a> and add it to your project.</p>
 
-<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/your/js/path/mixed.globals.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/your/js/path/mixed.globals.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 
 <p>This makes the <code>mixed</code> module available in the global namespace.</p>
 
-<h1>Basic <code>mixin</code> usage example</h1>
+<h1>
+<a name="basic-mixin-usage-example" class="anchor" href="#basic-mixin-usage-example"><span class="octicon octicon-link"></span></a>Basic <code>mixin</code> usage example</h1>
 
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Liquor</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight highlight-javascript"><pre><span class="kd">function</span> <span class="nx">Liquor</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">alcoholContent</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nx">Liquor</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
@@ -128,9 +145,10 @@ make <span class="o">&amp;&amp;</span> make dist
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">alcoholContent</span><span class="p">);</span> <span class="c1">// 0.4</span>
 </pre></div>
 
-<h1>Basic <code>mixable</code> usage example</h1>
+<h1>
+<a name="basic-mixable-usage-example" class="anchor" href="#basic-mixable-usage-example"><span class="octicon octicon-link"></span></a>Basic <code>mixable</code> usage example</h1>
 
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Liquor</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight highlight-javascript"><pre><span class="kd">function</span> <span class="nx">Liquor</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">alcoholContent</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nx">Liquor</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
@@ -155,36 +173,48 @@ make <span class="o">&amp;&amp;</span> make dist
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cocktail</span><span class="p">.</span><span class="nx">alcoholContent</span><span class="p">);</span> <span class="c1">// 0.4</span>
 </pre></div>
 
-<h1>API</h1>
+<h1>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
 
-<h2>mixin(mixin:Function, obj):Object</h2>
+<h2>
+<a name="mixinctorfunction-obj-argsobject" class="anchor" href="#mixinctorfunction-obj-argsobject"><span class="octicon octicon-link"></span></a>mixin(ctor:Function, obj, args…):Object</h2>
 
-<p>Applies the given mixin to the given object and returns the object.</p>
+<p>Applies the given constructor to the given object and returns the object.</p>
 
-<p>Copies each of the mixin's prototype's properties to the given object, then calls the mixin as a function with the object as its context (<code>this</code>).</p>
+<p>Copies each of the constructor's prototype's properties to the given object, then calls the constructor as a function with the object as its context (<code>this</code>).</p>
+
+<p>Any additional arguments will be passed to the constructor function.</p>
 
 <p><strong>NOTE</strong>: If you simply want to merge two instances rather than messing with constructors and prototypes, consider using <a href="https://github.com/jgallen23/aug">aug</a> instead.</p>
 
-<h2>mixable(ctor:Function):Function</h2>
+<h2>
+<a name="mixablectorfunction-argsfunction" class="anchor" href="#mixablectorfunction-argsfunction"><span class="octicon octicon-link"></span></a>mixable(ctor:Function, args…):Function</h2>
 
-<p>Creates a wrapper around the given constructor function that can be called either as a constructor (using the <code>new</code> keyword) or as a mixin (with the object to mix into as the sole argument). The constructor's prototype will be copied to the wrapper function.</p>
+<p>Creates a wrapper around the given constructor function that can be called either as a constructor (using the <code>new</code> keyword) or as a mixin (with the object to mix into as the sole argument). The constructor's prototype will be copied over to the wrapper function.</p>
 
 <p>If called as a mixin, this wrapper behaves exactly as if <code>mixin</code> was called directly.</p>
 
-<h1>Acknowledgments</h1>
+<h1>
+<a name="acknowledgments" class="anchor" href="#acknowledgments"><span class="octicon octicon-link"></span></a>Acknowledgments</h1>
 
 <p>This library was influenced by <a href="https://github.com/visionmedia">TJ Holowaychuk</a>'s work on <a href="https://github.com/component/component">component</a>.</p>
 
-<h1>License</h1>
+<h1>
+<a name="unlicense" class="anchor" href="#unlicense"><span class="octicon octicon-link"></span></a>Unlicense</h1>
 
-<p>The MIT/Expat license.</p>
+<p>This is free and unencumbered public domain software. For more information, see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanying <a href="https://github.com/pluma/mixed/blob/master/UNLICENSE">UNLICENSE</a> file.</p>
       </section>
     </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/pluma">pluma</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">mixed maintained by <a href="https://github.com/pluma">pluma</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
