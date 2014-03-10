@@ -1,6 +1,6 @@
 {
   "name": "mixed",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "license": "UNLICENSE",
   "repo": "pluma/mixed",
   "description": "Minimalist, lightweight, ES5-compatible mixins.",

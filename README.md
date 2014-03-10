@@ -2,9 +2,14 @@
 
 **mixed** is a minimalist, lightweight, ES3-compatible function to mix Constructor functions and their prototypes into instance objects.
 
+[![stability 3 - stable](http://b.repl.ca/v1/stability-3_--_stable-yellowgreen.png)
+](http://nodejs.org/api/documentation.html#documentation_stability_index) [![license - Unlicense](http://b.repl.ca/v1/license-Unlicense-lightgrey.png)](http://unlicense.org/) [![Flattr this](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=pluma&url=https://github.com/pluma/mixed)
+
 [![browser support](https://ci.testling.com/pluma/mixed.png)](https://ci.testling.com/pluma/mixed)
 
-[![Build Status](https://travis-ci.org/pluma/mixed.png?branch=master)](https://travis-ci.org/pluma/mixed) [![NPM version](https://badge.fury.io/js/mixed.png)](http://badge.fury.io/js/mixed)
+[![Build Status](https://travis-ci.org/pluma/mixed.png?branch=master)](https://travis-ci.org/pluma/mixed) [![Coverage Status](https://coveralls.io/repos/pluma/mixed/badge.png?branch=master)](https://coveralls.io/r/pluma/mixed?branch=master) [![Dependencies](https://david-dm.org/pluma/mixed.png?theme=shields.io)](https://david-dm.org/pluma/mixed)
+
+[![NPM status](https://nodei.co/npm/mixed.png?compact=true)](https://npmjs.org/package/mixed)
 
 # Rationale
 

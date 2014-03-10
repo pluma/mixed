@@ -1,4 +1,4 @@
-/*! mixed 0.3.2 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
+/*! mixed 0.4.0 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
 (function(root){var require=function(key){return root[key];},exports=(root.mixed={});
 function isEs5() {
     if (
