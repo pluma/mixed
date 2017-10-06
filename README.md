@@ -1,3 +1,5 @@
+**NOTE:** This package is no longer being maintained. If you are interested in taking over as maintainer or are interested in the npm package name, get in touch by creating an issue.
+
 # Synopsis
 
 **mixed** is a minimalist, lightweight, ES3-compatible function to mix Constructor functions and their prototypes into instance objects.
